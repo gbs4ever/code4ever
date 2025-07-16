@@ -199,27 +199,35 @@ document.addEventListener('DOMContentLoaded', () => {
         steps.forEach((step, i) => {
             step.classList.remove('active', 'completed');
             const status = step.querySelector('.step-status');
-            // Reset status text for all steps
+            const icon = step.querySelector('.step-icon');
+            // Reset status text and icon for all steps
             if (status) {
                 if (i === 0) status.innerHTML = 'Processing...';
                 else if (i === 1) status.innerHTML = 'Waiting...';
                 else if (i === 2) status.innerHTML = 'Waiting...';
                 status.classList.remove('flash-green');
             }
+            if (icon) {
+                // Restore original icons
+                if (i === 0) icon.innerHTML = '<i class="fas fa-file-alt"></i>';
+                else if (i === 1) icon.innerHTML = '<i class="fas fa-cogs"></i>';
+                else if (i === 2) icon.innerHTML = '<i class="fas fa-chart-line"></i>';
+                icon.classList.remove('big-green-check');
+            }
             if (i < index) {
                 step.classList.add('completed');
             } else if (i === index) {
                 step.classList.add('active');
-                // If it's the Results step, show "Done" and flash
-                if (i === 2 && status) {
+                // If it's the Results step, show big green check and flash
+                if (i === 2 && status && icon) {
                     status.innerHTML = '<i class="fas fa-check-circle"></i> Done';
                     status.classList.add('flash-green');
+                    icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                    icon.classList.add('big-green-check');
                 }
                 // Restart icon animation by reflow
-                const icon = step.querySelector('.step-icon');
                 if (icon) {
                     icon.style.animation = 'none';
-                    // Force reflow
                     void icon.offsetWidth;
                     icon.style.animation = '';
                 }
