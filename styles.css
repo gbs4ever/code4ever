@@ -857,6 +857,64 @@ body {
     }
 }
 
+/* Mobile styles for automation showcase and workflow steps */
+@media (max-width: 600px) {
+    .automation-showcase {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        padding: 1rem;
+        border-radius: 12px;
+        gap: 1rem;
+    }
+
+    .workflow-animation {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .workflow-step {
+        max-width: none;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.7rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .step-icon {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .step-title {
+        font-size: 0.7rem;
+    }
+
+    .step-status {
+        font-size: 0.5rem;
+    }
+
+    .workflow-connector {
+        width: 100%;
+        height: 8px;
+        margin: 0.2rem 0;
+    }
+
+    .efficiency-display {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .efficiency-metric .metric-icon {
+        font-size: 1.5rem;
+    }
+}
+
 /* ...existing code... */
 
 .workflow-step.active .step-title,
