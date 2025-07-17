@@ -277,3 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
     activateStep(current);
     setInterval(nextStep, 2000);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 600) {
+        var heroImage = document.querySelector('.hero-image');
+        if (heroImage) {
+            heroImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+});
