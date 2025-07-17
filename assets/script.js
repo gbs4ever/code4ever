@@ -285,9 +285,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth <= 600) {
-        var heroSection = document.querySelector('section.home, .hero');
-        if (heroSection) {
-            heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var heroImage = document.querySelector('.hero-image');
+        if (heroImage) {
+             // Add margin for better visibility
+            heroImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            heroImage.style.marginTop = '100px';
         }
     }
 });

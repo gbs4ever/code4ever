@@ -12,16 +12,14 @@ ngrok.exe
 
 .vscode/*      # Maybe .vscode/**/* instead - see comments
 .vscode/settings.json
-.vscode/settings.json
 responseCodes.json
 # .rubocop.yml
 # .rubocop_todo.yml
 # Ignore the default SQLite database.
 
 ngrok
-devlog.md
-/Gemfile.lock
-test
+
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
