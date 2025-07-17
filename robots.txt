@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.code4ever.dev/sitemap.xml
+
+# Disallow sensitive or admin paths (add if needed)
+# Disallow: /admin/
+# Disallow: /private/
