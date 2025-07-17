@@ -1,0 +1,22 @@
+{
+    "name": "code4ever-website",
+    "version": "1.0.0",
+    "description": "code4everwebsite",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gbs4ever/code4ever.git"
+    },
+    "author": "simcha greenbaum",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/gbs4ever/code4ever/issues"
+    },
+    "homepage": "https://github.com/gbs4ever/code4ever#readme",
+    "devDependencies": {
+        "prettier": "^3.6.2"
+    }
+}

@@ -402,11 +402,21 @@ body {
 }
 
 @keyframes bounce {
-    0%   { transform: translateY(0); }
-    30%  { transform: translateY(-18px); }
-    50%  { transform: translateY(0); }
-    70%  { transform: translateY(-9px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-18px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-9px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* Section Styles */
@@ -530,7 +540,9 @@ body {
 
 .service-card:hover {
     transform: translateY(-35px) scale(1.12) perspective(1000px) rotateX(8deg);
-    box-shadow: 0 50px 80px rgba(102, 126, 234, 0.4), 0 25px 50px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 50px 80px rgba(102, 126, 234, 0.4),
+        0 25px 50px rgba(0, 0, 0, 0.3);
     z-index: 10;
     background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
 }
@@ -946,8 +958,13 @@ body {
 }
 
 @keyframes flash-green {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
 }
 
 .big-green-check i.fas.fa-check-circle {

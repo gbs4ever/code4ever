@@ -4,13 +4,13 @@ const navMenu = document.querySelector('.nav-menu');
 
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-    
+
     // Animate hamburger menu
     navToggle.classList.toggle('active');
 });
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
+document.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
@@ -18,15 +18,15 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
-                block: 'start'
+                block: 'start',
             });
         }
     });
@@ -47,29 +47,29 @@ window.addEventListener('scroll', () => {
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
-        
+
         // Basic validation
         if (!name || !email || !subject || !message) {
             showNotification('Please fill in all fields', 'error');
             return;
         }
-        
+
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Simulate form submission
-        showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+        showNotification("Thank you for your message! We'll get back to you soon.", 'success');
         this.reset();
     });
 }
@@ -87,12 +87,12 @@ function showNotification(message, type = 'info') {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
+
     // Add styles
     notification.style.cssText = `
         position: fixed;
@@ -109,14 +109,14 @@ function showNotification(message, type = 'info') {
         max-width: 300px;
         font-weight: 500;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Remove after 5 seconds
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
@@ -129,11 +129,11 @@ function showNotification(message, type = 'info') {
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -50px 0px',
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
@@ -144,9 +144,11 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     // Elements to animate on scroll
-    const animateElements = document.querySelectorAll('.service-card, .industry-card, .skill-item, .stat');
-    
-    animateElements.forEach(el => {
+    const animateElements = document.querySelectorAll(
+        '.service-card, .industry-card, .skill-item, .stat'
+    );
+
+    animateElements.forEach((el) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -157,12 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Counter animation for stats
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
+
+    counters.forEach((counter) => {
         const target = parseInt(counter.textContent.replace(/\+/g, ''));
         const increment = target / 100;
         let current = 0;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -178,15 +180,18 @@ function animateCounters() {
 // Trigger counter animation when stats section is visible
 const statsSection = document.querySelector('.stats');
 if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
+    const statsObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
     statsObserver.observe(statsSection);
 }
 
@@ -278,11 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(nextStep, 2000);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth <= 600) {
-        var heroImage = document.querySelector('.hero-image');
-        if (heroImage) {
-            heroImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var heroSection = document.querySelector('section.home, .hero');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 });
