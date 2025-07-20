@@ -69,7 +69,9 @@ body {
     background: #2563eb;
     border-radius: 8px;
     padding: 0.5em 1em; /* Add padding for larger background */
-    transition: background 0.3s, padding 0.3s;
+    transition:
+        background 0.3s,
+        padding 0.3s;
 }
 
 .nav-link::after {
@@ -357,7 +359,6 @@ body {
     font-size: 1.2rem;
     animation: sparkle 2s ease-in-out infinite;
 }
-
 
 /* Animate only the active step icon */
 .automation-showcase .workflow-step.active .step-icon {

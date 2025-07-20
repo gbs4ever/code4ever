@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth <= 600) {
         var heroImage = document.querySelector('.hero-image');
         if (heroImage) {
-             // Add margin for better visibility
+            // Add margin for better visibility
             heroImage.scrollIntoView({ behavior: 'smooth', block: 'start' });
             heroImage.style.marginTop = '100px';
         }
