@@ -65,22 +65,15 @@ body {
 }
 
 .nav-link:hover {
-    color: #2563eb;
+    color: #e0e7ff;
+    background: #2563eb;
+    border-radius: 8px;
+    padding: 0.5em 1em; /* Add padding for larger background */
+    transition: background 0.3s, padding 0.3s;
 }
 
 .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #2563eb;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
+    display: none;
 }
 
 .nav-toggle {
