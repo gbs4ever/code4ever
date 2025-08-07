@@ -43,3 +43,4 @@ coverage
 coverage
 *.dump+
 node_modules
+dist/
