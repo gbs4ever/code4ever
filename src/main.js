@@ -168,6 +168,7 @@ function animateCounters() {
         const hasPercent = originalText.includes('%');
         const hasDollar = originalText.includes('$');
         const hasK = originalText.includes('K');
+        const hasPlus = originalText.includes('+');
         const target = parseInt(originalText.replace(/[^0-9]/g, ''));
         const increment = target / 100;
         let current = 0;
@@ -178,7 +179,7 @@ function animateCounters() {
                 if (hasPercent) {
                     counter.textContent = target + ' %';
                 } else if (hasDollar && hasK) {
-                    counter.textContent = '$' + target + 'K';
+                    counter.textContent = '$' + target + 'K' + (hasPlus ? '+' : '');
                 } else {
                     counter.textContent = target + '+';
                 }
@@ -187,7 +188,7 @@ function animateCounters() {
                 if (hasPercent) {
                     counter.textContent = Math.floor(current) + ' %';
                 } else if (hasDollar && hasK) {
-                    counter.textContent = '$' + Math.floor(current) + 'K';
+                    counter.textContent = '$' + Math.floor(current) + 'K' + (hasPlus ? '+' : '');
                 } else {
                     counter.textContent = Math.floor(current) + '+';
                 }
