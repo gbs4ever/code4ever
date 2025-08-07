@@ -513,6 +513,10 @@ body {
     color: #00d4aa !important; /* AI/Automation teal */
 }
 
+.skill-item .fa-gem {
+    color: #cc342d !important; /* Ruby red */
+}
+
 /* Services Section */
 .services {
     padding: 6rem 0;
