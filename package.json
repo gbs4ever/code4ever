@@ -2,6 +2,7 @@
     "name": "code4ever-website",
     "version": "1.0.0",
     "description": "code4everwebsite",
+    "type": "module",
     "main": "index.html",
     "scripts": {
         "dev": "vite",
