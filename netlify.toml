@@ -1,0 +1,15 @@
+[build]
+  # Build command - tells Netlify how to build your site
+  command = "npm run build"
+  
+  # Publish directory - where Netlify should look for the built files
+  publish = "dist"
+  
+  # Node version
+  environment = { NODE_VERSION = "18" }
+
+# Handle single page app routing (optional but good to have)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
