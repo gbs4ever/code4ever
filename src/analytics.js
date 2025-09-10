@@ -3,14 +3,14 @@
  * Handles tracking events and user interactions
  */
 
-// Configuration from environment variables
+// Configuration
 const ANALYTICS_CONFIG = {
-    measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || 'GA_MEASUREMENT_ID',
-    enabled: import.meta.env.VITE_ANALYTICS_ENABLED === 'true',
-    debug: import.meta.env.VITE_ANALYTICS_DEBUG === 'true',
-    environment: import.meta.env.VITE_ANALYTICS_ENVIRONMENT || 'development',
-    siteUrl: import.meta.env.VITE_SITE_URL || 'https://www.code4ever.dev',
-    siteName: import.meta.env.VITE_SITE_NAME || 'Code4Ever'
+    measurementId: 'G-ZEWTVYPKMG',
+    enabled: true,
+    debug: true, // Set to true for development debugging
+    environment: 'production',
+    siteUrl: 'https://www.code4ever.dev',
+    siteName: 'Code4Ever'
 };
 
 /**
