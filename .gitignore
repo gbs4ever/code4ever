@@ -44,3 +44,4 @@ coverage
 *.dump+
 node_modules
 dist/
+README-ANALYTICS.md

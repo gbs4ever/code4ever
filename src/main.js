@@ -1,6 +1,16 @@
 // Import CSS
 import './styles.css';
 
+// Import analytics
+import analytics from './analytics.js';
+import {
+    trackButtonClick,
+    trackFormSubmission,
+    trackNavigation,
+    trackSectionView,
+    trackConversion
+} from './analytics.js';
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -24,6 +34,9 @@ document.querySelectorAll('.nav-link').forEach((link) => {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        
+        // Track navigation click
+        trackNavigation(this.textContent.trim(), this.getAttribute('href'));
 
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -71,6 +84,15 @@ if (contactForm) {
             return;
         }
 
+        // Track form submission
+        trackFormSubmission('contact_form', {
+            businessType: 'unknown',
+            userIntent: 'contact'
+        });
+        
+        // Track conversion
+        trackConversion('lead', 100);
+        
         // Simulate form submission
         showNotification("Thank you for your message! We'll get back to you soon.", 'success');
         this.reset();
@@ -303,7 +325,51 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(nextStep, 2000);
 });
 
+// Initialize analytics and tracking when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize analytics
+    analytics.init();
+    
+    // Track page load
+    analytics.trackPageView(window.location.pathname);
+    
+    // Track button clicks
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonText = this.textContent.trim();
+            const section = this.closest('section')?.id || 'unknown';
+            trackButtonClick(buttonText, section);
+        });
+    });
+    
+    // Track section visibility for engagement
+    const sections = document.querySelectorAll('section[id]');
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionName = entry.target.id;
+                    trackSectionView(sectionName);
+                }
+            });
+        },
+        {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        }
+    );
+    
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+    
+    // Set user properties for better segmentation
+    analytics.setUserProperties({
+        businessType: 'website_visitor',
+        userIntent: 'browsing',
+        pageType: 'business_website'
+    });
+    
     if (window.innerWidth <= 600) {
         var heroImage = document.querySelector('.hero-image');
         if (heroImage) {
