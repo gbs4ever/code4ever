@@ -155,13 +155,15 @@ body {
 }
 
 .btn-primary {
-    background: #2563eb;
-    color: white;
+    background: linear-gradient(135deg, #00d4aa 0%, #00ff88 100%);
+    color: #020617;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: linear-gradient(135deg, #00c9a0 0%, #00e67e 100%);
     transform: translateY(-2px);
+    color: #020617;
 }
 
 .btn-secondary {

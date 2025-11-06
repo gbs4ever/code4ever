@@ -183,8 +183,7 @@ function showAutomationPopup() {
             <div class="popup-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3>Automation Complete!</h3>
-            <p>Your business process has been successfully automated</p>
+            <h3>You Just Saved $50K!</h3>
             <button class="popup-close" onclick="this.parentElement.parentElement.remove()">Close</button>
         </div>
     `;
@@ -231,15 +230,9 @@ function showAutomationPopup() {
     // Style popup text
     const popupH3 = popup.querySelector('h3');
     popupH3.style.cssText = `
-        color: #00ff88;
+        color: #ffffff;
         margin-bottom: 0.5rem;
         font-size: 1.5rem;
-    `;
-
-    const popupP = popup.querySelector('p');
-    popupP.style.cssText = `
-        color: #cbd5e1;
-        margin-bottom: 1.5rem;
     `;
 
     // Style close button
@@ -285,12 +278,12 @@ function showAutomationPopup() {
 
     document.body.appendChild(popup);
 
-    // Auto-close after 3 seconds
+    // Auto-close after 2 seconds
     setTimeout(() => {
         if (popup.parentElement) {
             popup.remove();
         }
-    }, 3000);
+    }, 2000);
 }
 
 // Intersection Observer for animations
@@ -381,8 +374,17 @@ if (statsSection) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('.workflow-step');
+    const heroImage = document.querySelector('.hero-image');
     let current = 0;
     let flashing = false;
+    let hasHoveredDuringWorkflow = false;
+    
+    // Set flag to true if hovering over hero image anytime during workflow
+    if (heroImage) {
+        heroImage.addEventListener('mouseenter', () => {
+            hasHoveredDuringWorkflow = true;
+        });
+    }
 
     function activateStep(index) {
         steps.forEach((step, i) => {
@@ -438,12 +440,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (flashes < 3) {
                     setTimeout(doFlash, 200);
                 } else {
-                    // Wait for popup to close (3 seconds) before restarting
+                    // Wait for popup to close (2 seconds) before restarting
                     setTimeout(() => {
                         flashing = false;
                         current = 0;
                         activateStep(current);
-                    }, 3000);
+                    }, 2000);
                 }
             }, 200);
         }
@@ -462,8 +464,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (status) {
                 status.innerHTML = '<i class="fas fa-check-circle"></i> Done';
             }
-            // Show popup when automation is complete
-            showAutomationPopup();
+            // Show popup if there was any hover during the workflow
+            if (hasHoveredDuringWorkflow) {
+                showAutomationPopup();
+                hasHoveredDuringWorkflow = false; // Reset for next cycle
+            }
             flashDoneAndRestart();
         }
     }
