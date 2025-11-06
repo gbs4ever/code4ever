@@ -94,14 +94,20 @@ if (contactForm) {
         trackConversion('lead', 100);
         
         // Submit to Netlify
+        const data = new URLSearchParams(formData);
+        data.append('form-name', 'contact');
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
+            body: data.toString()
         })
-        .then(() => {
-            showNotification("Thank you for your message! We'll get back to you soon.", 'success');
-            this.reset();
+        .then(response => {
+            if (response.status === 200) {
+                showNotification("Thank you for your message! We'll get back to you soon.", 'success');
+                contactForm.reset();
+            } else {
+                showNotification('Failed to send message. Please try again.', 'error');
+            }
         })
         .catch(() => {
             showNotification('Failed to send message. Please try again.', 'error');
