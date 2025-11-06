@@ -93,9 +93,19 @@ if (contactForm) {
         // Track conversion
         trackConversion('lead', 100);
         
-        // Simulate form submission
-        showNotification("Thank you for your message! We'll get back to you soon.", 'success');
-        this.reset();
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            showNotification("Thank you for your message! We'll get back to you soon.", 'success');
+            this.reset();
+        })
+        .catch(() => {
+            showNotification('Failed to send message. Please try again.', 'error');
+        });
     });
 }
 
