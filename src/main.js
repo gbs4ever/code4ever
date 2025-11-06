@@ -211,7 +211,7 @@ function showAutomationPopup() {
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        border: 2px solid #00ff88;
+        border: 2px solid #00d4ff;
         color: white;
         max-width: 400px;
         width: 90%;
@@ -222,7 +222,7 @@ function showAutomationPopup() {
     const popupIcon = popup.querySelector('.popup-icon i');
     popupIcon.style.cssText = `
         font-size: 3rem;
-        color: #00ff88;
+        color: #00d4ff;
         margin-bottom: 1rem;
         animation: bounce 1s ease;
     `;
@@ -238,7 +238,7 @@ function showAutomationPopup() {
     // Style close button
     const closeBtn = popup.querySelector('.popup-close');
     closeBtn.style.cssText = `
-        background: #00ff88;
+        background: #00d4ff;
         color: #020617;
         padding: 0.5rem 1.5rem;
         border: none;
@@ -249,11 +249,11 @@ function showAutomationPopup() {
     `;
 
     closeBtn.onmouseover = () => {
-        closeBtn.style.background = '#00d4aa';
+        closeBtn.style.background = '#0099ff';
         closeBtn.style.transform = 'scale(1.05)';
     };
     closeBtn.onmouseout = () => {
-        closeBtn.style.background = '#00ff88';
+        closeBtn.style.background = '#00d4ff';
         closeBtn.style.transform = 'scale(1)';
     };
 
