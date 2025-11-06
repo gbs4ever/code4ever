@@ -167,6 +167,132 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
+// Automation completion popup
+function showAutomationPopup() {
+    // Remove existing popup
+    const existingPopup = document.querySelector('.automation-popup');
+    if (existingPopup) {
+        existingPopup.remove();
+    }
+
+    // Create popup element
+    const popup = document.createElement('div');
+    popup.className = 'automation-popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Automation Complete!</h3>
+            <p>Your business process has been successfully automated</p>
+            <button class="popup-close" onclick="this.parentElement.parentElement.remove()">Close</button>
+        </div>
+    `;
+
+    // Add styles
+    popup.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        animation: fadeIn 0.3s ease;
+    `;
+
+    // Style popup content
+    const popupContent = popup.querySelector('.popup-content');
+    popupContent.style.cssText = `
+        background: #1e293b;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 2px solid #00ff88;
+        color: white;
+        max-width: 400px;
+        width: 90%;
+        animation: slideIn 0.5s ease;
+    `;
+
+    // Style popup icon
+    const popupIcon = popup.querySelector('.popup-icon i');
+    popupIcon.style.cssText = `
+        font-size: 3rem;
+        color: #00ff88;
+        margin-bottom: 1rem;
+        animation: bounce 1s ease;
+    `;
+
+    // Style popup text
+    const popupH3 = popup.querySelector('h3');
+    popupH3.style.cssText = `
+        color: #00ff88;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    `;
+
+    const popupP = popup.querySelector('p');
+    popupP.style.cssText = `
+        color: #cbd5e1;
+        margin-bottom: 1.5rem;
+    `;
+
+    // Style close button
+    const closeBtn = popup.querySelector('.popup-close');
+    closeBtn.style.cssText = `
+        background: #00ff88;
+        color: #020617;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    `;
+
+    closeBtn.onmouseover = () => {
+        closeBtn.style.background = '#00d4aa';
+        closeBtn.style.transform = 'scale(1.05)';
+    };
+    closeBtn.onmouseout = () => {
+        closeBtn.style.background = '#00ff88';
+        closeBtn.style.transform = 'scale(1)';
+    };
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: scale(0.7) translateY(-50px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(popup);
+
+    // Auto-close after 3 seconds
+    setTimeout(() => {
+        if (popup.parentElement) {
+            popup.remove();
+        }
+    }, 3000);
+}
+
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -312,9 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (flashes < 3) {
                     setTimeout(doFlash, 200);
                 } else {
-                    flashing = false;
-                    current = 0;
-                    activateStep(current);
+                    // Wait for popup to close (3 seconds) before restarting
+                    setTimeout(() => {
+                        flashing = false;
+                        current = 0;
+                        activateStep(current);
+                    }, 3000);
                 }
             }, 200);
         }
@@ -333,6 +462,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (status) {
                 status.innerHTML = '<i class="fas fa-check-circle"></i> Done';
             }
+            // Show popup when automation is complete
+            showAutomationPopup();
             flashDoneAndRestart();
         }
     }
