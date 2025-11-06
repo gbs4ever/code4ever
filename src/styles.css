@@ -47,6 +47,12 @@ body {
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #00d4ff;
 }
 
 .nav-logo i {
