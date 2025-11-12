@@ -464,9 +464,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (status) {
                 status.innerHTML = '<i class="fas fa-check-circle"></i> Done';
             }
-            // Show popup if there was any hover during the workflow
-            if (hasHoveredDuringWorkflow) {
+            // Show popup only once per session if there was any hover during the workflow
+            if (hasHoveredDuringWorkflow && !sessionStorage.getItem('popupShown')) {
                 showAutomationPopup();
+                sessionStorage.setItem('popupShown', 'true');
                 hasHoveredDuringWorkflow = false; // Reset for next cycle
             }
             flashDoneAndRestart();
