@@ -378,11 +378,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let current = 0;
     let flashing = false;
     let hasHoveredDuringWorkflow = false;
+    let popupShownThisSession = false; // Track if popup was already shown
     
     // Set flag to true if hovering over hero image anytime during workflow
     if (heroImage) {
         heroImage.addEventListener('mouseenter', () => {
-            hasHoveredDuringWorkflow = true;
+            if (!popupShownThisSession) {
+                hasHoveredDuringWorkflow = true;
+            }
         });
     }
 
@@ -464,11 +467,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (status) {
                 status.innerHTML = '<i class="fas fa-check-circle"></i> Done';
             }
-            // Show popup only once per session if there was any hover during the workflow
-            if (hasHoveredDuringWorkflow && !sessionStorage.getItem('popupShown')) {
+            // Show popup only once per page load if there was any hover during the workflow
+            if (hasHoveredDuringWorkflow && !popupShownThisSession) {
                 showAutomationPopup();
-                sessionStorage.setItem('popupShown', 'true');
-                hasHoveredDuringWorkflow = false; // Reset for next cycle
+                popupShownThisSession = true;
+                hasHoveredDuringWorkflow = false; // Reset flag
             }
             flashDoneAndRestart();
         }
