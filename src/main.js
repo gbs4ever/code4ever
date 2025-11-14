@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function activateStep(index) {
         steps.forEach((step, i) => {
-            step.classList.remove('active', 'completed');
+            step.classList.remove('active', 'completed', 'completed-blue');
             const status = step.querySelector('.step-status');
             const icon = step.querySelector('.step-icon');
             // Reset status text and icon for all steps
@@ -418,6 +418,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     status.classList.add('flash-green');
                     icon.innerHTML = '<i class="fas fa-check-circle"></i>';
                     icon.classList.add('big-green-check');
+                    // Change border to blue when Results completes
+                    step.classList.add('completed-blue');
+                    step.classList.remove('completed');
                 }
                 // Restart icon animation by reflow
                 if (icon) {

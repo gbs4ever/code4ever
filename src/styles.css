@@ -242,6 +242,13 @@ body {
     background: linear-gradient(135deg, #e6ffe6 60%, #d1fadf 100%);
 }
 
+.workflow-step.completed-blue {
+    opacity: 1;
+    border-color: #00d4ff !important;
+    background: linear-gradient(135deg, #e6f7ff 60%, #cceeff 100%) !important;
+    box-shadow: 0 10px 25px #00d4ff55 !important;
+}
+
 .step-icon {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -627,11 +634,12 @@ body {
 
 .industry-card {
     background: #1e293b;
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
     border: 2px solid rgba(123, 163, 192, 0.2);
+    min-height: 280px;
 }
 
 .industry-card:hover {
@@ -640,18 +648,18 @@ body {
 }
 
 .industry-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background: linear-gradient(135deg, #7ba3c0 0%, #5a8ab0 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 auto 1.5rem;
 }
 
 .industry-icon i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
 }
 
@@ -663,7 +671,8 @@ body {
 
 .industry-card p {
     color: #cbd5e1;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 /* Contact Section */
@@ -991,5 +1000,27 @@ body {
     color: #22c55e !important;
     font-size: 3rem !important;
     filter: drop-shadow(0 0 8px #22c55e88);
+    transition: font-size 0.3s;
+}
+
+.flash-blue {
+    animation: flash-blue 0.2s steps(2, start) 6;
+    color: #00d4ff !important;
+}
+
+@keyframes flash-blue {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.big-blue-check i.fas.fa-check-circle {
+    color: #00d4ff !important;
+    font-size: 3rem !important;
+    filter: drop-shadow(0 0 8px #00d4ff88);
     transition: font-size 0.3s;
 }
