@@ -650,7 +650,7 @@ body {
 
 .industry-card {
     background: #293548;
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
@@ -666,24 +666,24 @@ body {
 }
 
 .industry-icon {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     background: linear-gradient(135deg, #7ba3c0 0%, #5a8ab0 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1.2rem;
 }
 
 .industry-icon i {
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: white;
 }
 
 .industry-icon .industry-logo {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     object-fit: contain;
     border-radius: 8px;
 }
@@ -705,20 +705,20 @@ body {
 }
 
 .industry-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
     color: #ffffff;
 }
 
 .industry-card p {
     color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 1.05rem;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .testimonial-quote {
     margin-top: auto;
-    padding-top: 2rem;
+    padding-top: 1.8rem;
     border-top: 2px solid rgba(0, 212, 255, 0.2);
 }
 
@@ -747,6 +747,7 @@ body {
     color: #e5e7eb;
     margin-bottom: 1rem;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .testimonial-quote .testimonial-author {
@@ -762,7 +763,7 @@ body {
 
 .testimonial-quote .testimonial-author span {
     color: #7ba3c0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 /* Testimonials Section */
