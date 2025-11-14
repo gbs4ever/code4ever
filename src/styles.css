@@ -655,7 +655,8 @@ body {
     text-align: center;
     transition: all 0.3s ease;
     border: 2px solid rgba(123, 163, 192, 0.2);
-    min-height: 280px;
+    display: flex;
+    flex-direction: column;
 }
 
 .industry-card:hover {
@@ -680,20 +681,27 @@ body {
     color: white;
 }
 
+.industry-icon .industry-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
 /* Industry-specific icon colors */
 .industry-card:nth-child(1) .industry-icon {
-    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%); /* Bright orange for E-commerce */
-    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.4);
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
 }
 
 .industry-card:nth-child(2) .industry-icon {
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); /* Hot pink for Healthcare */
-    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); /* Light blue for Healthcare */
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
 }
 
 .industry-card:nth-child(3) .industry-icon {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); /* Bright cyan for Corporate */
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
 }
 
 .industry-card h3 {
@@ -706,6 +714,124 @@ body {
     color: #cbd5e1;
     line-height: 1.8;
     font-size: 1.05rem;
+}
+
+.testimonial-quote {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(0, 212, 255, 0.2);
+}
+
+.testimonial-quote i.company-icon {
+    color: #00d4ff;
+    font-size: 3rem;
+    margin: 0 auto 1rem auto;
+    display: block;
+    text-align: center;
+}
+
+.testimonial-quote .company-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin: 0 auto 1rem auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #00d4ff;
+    padding: 10px;
+    background: white;
+}
+
+.testimonial-quote p {
+    font-style: italic;
+    color: #e5e7eb;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.testimonial-quote .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.testimonial-quote .testimonial-author strong {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.testimonial-quote .testimonial-author span {
+    color: #7ba3c0;
+    font-size: 0.85rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 6rem 0;
+    background: transparent;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: #293548;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(123, 163, 192, 0.2);
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+}
+
+.testimonial-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.testimonial-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.testimonial-text {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.testimonial-author strong {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.testimonial-author span {
+    color: #7ba3c0;
+    font-size: 0.9rem;
 }
 
 /* Contact Section */
