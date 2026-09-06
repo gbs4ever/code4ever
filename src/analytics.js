@@ -10,7 +10,7 @@ const ANALYTICS_CONFIG = {
     debug: true, // Set to true for development debugging
     environment: 'production',
     siteUrl: 'https://www.code4ever.dev',
-    siteName: 'Code4Ever'
+    siteName: 'Code4Ever',
 };
 
 /**
@@ -33,8 +33,8 @@ export function initAnalytics() {
         // Custom parameters
         custom_map: {
             custom_parameter_1: 'business_type',
-            custom_parameter_2: 'user_intent'
-        }
+            custom_parameter_2: 'user_intent',
+        },
     });
 
     if (ANALYTICS_CONFIG.debug) {
@@ -74,7 +74,7 @@ export function trackEvent(eventName, parameters = {}) {
         value: parameters.value || 1,
         custom_parameter_1: parameters.businessType || '',
         custom_parameter_2: parameters.userIntent || '',
-        ...parameters
+        ...parameters,
     });
 
     if (ANALYTICS_CONFIG.debug) {
@@ -93,7 +93,7 @@ export function trackFormSubmission(formName, formData = {}) {
         label: formName,
         form_name: formName,
         business_type: formData.businessType || 'unknown',
-        user_intent: formData.userIntent || 'contact'
+        user_intent: formData.userIntent || 'contact',
     });
 }
 
@@ -107,7 +107,7 @@ export function trackButtonClick(buttonName, section = '') {
         category: 'button',
         label: buttonName,
         section: section,
-        button_name: buttonName
+        button_name: buttonName,
     });
 }
 
@@ -121,7 +121,7 @@ export function trackNavigation(linkText, destination) {
         category: 'navigation',
         label: linkText,
         destination: destination,
-        link_text: linkText
+        link_text: linkText,
     });
 }
 
@@ -133,7 +133,7 @@ export function trackSectionView(sectionName) {
     trackEvent('scroll', {
         category: 'engagement',
         label: `section_${sectionName}`,
-        section_name: sectionName
+        section_name: sectionName,
     });
 }
 
@@ -147,7 +147,7 @@ export function trackDownload(fileName, fileType) {
         category: 'download',
         label: fileName,
         file_name: fileName,
-        file_type: fileType
+        file_type: fileType,
     });
 }
 
@@ -161,7 +161,7 @@ export function trackExternalLink(url, linkText) {
         category: 'external_link',
         label: url,
         link_text: linkText,
-        external_url: url
+        external_url: url,
     });
 }
 
@@ -175,7 +175,7 @@ export function trackConversion(conversionType, value = 0) {
         category: 'conversion',
         label: conversionType,
         value: value,
-        conversion_type: conversionType
+        conversion_type: conversionType,
     });
 }
 
@@ -190,7 +190,7 @@ export function trackEngagementTime(sectionName, timeSpent) {
         label: sectionName,
         value: Math.round(timeSpent / 1000), // Convert to seconds
         section_name: sectionName,
-        time_spent: timeSpent
+        time_spent: timeSpent,
     });
 }
 
@@ -206,8 +206,8 @@ export function setUserProperties(properties) {
             business_type: properties.businessType || '',
             user_intent: properties.userIntent || '',
             page_type: properties.pageType || 'website',
-            ...properties
-        }
+            ...properties,
+        },
     });
 
     if (ANALYTICS_CONFIG.debug) {
@@ -227,5 +227,5 @@ export default {
     trackExternalLink,
     trackConversion,
     trackEngagementTime,
-    setUserProperties
+    setUserProperties,
 };

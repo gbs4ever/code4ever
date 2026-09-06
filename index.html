@@ -21,24 +21,37 @@
         <meta property="og:url" content="https://www.code4ever.dev/" />
         <link rel="canonical" href="https://www.code4ever.dev/" />
         <title>Code4Ever | Business Automation Experts - Code4Ever.dev</title>
-        
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEWTVYPKMG"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZEWTVYPKMG');
-        </script>
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+        <style>
+            @font-face {
+                font-family: 'Inter Fallback';
+                src: local('Arial');
+                ascent-override: 90%;
+                descent-override: 22.5%;
+                line-gap-override: 0%;
+                size-adjust: 107%;
+            }
+            html,
+            body {
+                background: #f6f8fb;
+                margin: 0;
+            }
+            body {
+                font-family:
+                    'Inter',
+                    'Inter Fallback',
+                    system-ui,
+                    -apple-system,
+                    'Segoe UI',
+                    Roboto,
+                    sans-serif;
+                color: #4b5563;
+            }
+        </style>
+
         <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
         <link rel="icon" type="image/x-icon" href="/favicon.svg" />
         <script type="application/ld+json">
@@ -59,7 +72,8 @@
             <div class="nav-container">
                 <div class="nav-logo">
                     <i class="fas fa-code"></i>
-                    <span>Code4Ever</span>
+                        <span>Code4Ever</span>
+                        <span class="nav-tagline">Business Automation Experts</span>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
@@ -84,18 +98,27 @@
                         <h1 class="hero-title">
                             <span class="gradient-text">Code4Ever Inc.</span>
                         </h1>
-                        <p class="hero-subtitle" style="font-size: 1.3rem; margin: 0.3rem 0 1.5rem 0; font-weight: 400; color: #cbd5e1;">
-                            Smarter tech and automation to scale your business, not your costs.
+                        <p
+                            class="hero-subtitle"
+                            style="
+                                font-size: 1.6rem;
+                                margin: 0.3rem 0 0.8rem 0;
+                                font-weight: 600;
+                                color: #1f355c;
+                            "
+                        >
+                            Smarter tech and automation to
+                            <span class="highlight-green">scale your business</span>, not your
+                            costs.
                         </p>
                     </div>
-                    <p class="hero-description" style="font-size: 2.2rem; margin-top: 3rem; margin-bottom: 2rem; opacity: 1; color: #00d4ff; font-weight: 600;">
-                        Business Automation Experts
-                    </p>
-                    <p class="hero-description">
-                        Automate smarter. No need to reinvent the wheel Code4Ever builds on proven
-                        solutions. We build custom software solutions that automate your business
-                        processes, eliminate manual work, and save you thousands in labor costs without overspending on development.
-                        Stop hiring more people start automating smarter.
+                    <p class="hero-description" style="margin-bottom: 1.2rem">
+                        We help product distribution, wholesale, retail, and e-commerce
+                        businesses replace spreadsheets and disconnected tools with structured
+                        automation systems that drive
+                        <span class="text-green"
+                            >accounting accuracy, visibility, and growth.</span
+                        >
                     </p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Save Money Now</a>
@@ -103,64 +126,60 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="automation-showcase">
-                        <div class="workflow-animation">
-                            <div class="workflow-step active" data-step="1">
-                                <div class="step-icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </div>
-                                <div class="step-title">Data Input</div>
-                                <div class="step-status">Processing...</div>
-                            </div>
-                            <div class="workflow-connector">
-                                <div class="data-flow"></div>
-                            </div>
-                            <div class="workflow-step" data-step="2">
-                                <div class="step-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <div class="step-title">Automation</div>
-                                <div class="step-status">Waiting...</div>
-                            </div>
-                            <div class="workflow-connector">
-                                <div class="data-flow"></div>
-                            </div>
-                            <div class="workflow-step" data-step="3">
-                                <div class="step-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="step-title">Results</div>
-                                <div class="step-status">Waiting...</div>
-                            </div>
+                    <img
+                        src="/laptop.png"
+                        alt="Business dashboard on a laptop"
+                        class="hero-laptop"
+                        width="1678"
+                        height="937"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="solutions">
+            <div class="container">
+                <div class="solutions-header">
+                    <span class="solutions-header-line"></span>
+                    <h2>Our Solutions</h2>
+                    <span class="solutions-header-line"></span>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <div class="solution-icon">
+                            <i class="fas fa-gear"></i>
                         </div>
-                        <div class="efficiency-display">
-                            <div class="efficiency-metric">
-                                <div class="metric-icon" style="color: #06d6a0">
-                                    <i class="fas fa-bolt"></i>
-                                    <!-- Changed from fa-clock to fa-bolt -->
-                                </div>
-                                <div class="metric-value">80%</div>
-                                <div class="metric-label">Time Saved</div>
-                            </div>
-                            <div class="efficiency-metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-rocket" style="color: #06d6a0"></i>
-                                </div>
-                                <div class="metric-value">24/7</div>
-                                <div class="metric-label">Uptime</div>
-                            </div>
-                            <div class="efficiency-metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-shield-alt" style="color: #06d6a0"></i>
-                                </div>
-                                <div class="metric-value">99.9%</div>
-                                <div class="metric-label">Accuracy</div>
-                            </div>
+                        <h3>ERP & System Customization</h3>
+                        <p>NetSuite, Odoo, and other ERP platforms tailored to your needs.</p>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-icon">
+                            <i class="fas fa-boxes-stacked"></i>
                         </div>
-                        <a href="#about" class="automation-banner" style="cursor: pointer; text-decoration: none;">
-                            <i class="fas fa-magic"></i>
-                            <span>Smart Automation in Action</span>
-                        </a>
+                        <h3>Inventory & WMS Solutions</h3>
+                        <p>Real-time visibility, UOM management, and warehouse optimization.</p>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>System Integration & Automation</h3>
+                        <p>Seamless integrations that connect your business and eliminate manual work.</p>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Data & Business Intelligence</h3>
+                        <p>Transform your data into actionable insights that drive decisions.</p>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Consulting & Ongoing Support</h3>
+                        <p>Expert guidance and long-term support to keep you moving forward.</p>
                     </div>
                 </div>
             </div>
@@ -171,7 +190,9 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Time is Money. We Save Both.</h2>
-                    <p class="section-subtitle">Building smarter systems that scale your business, not your costs.</p>
+                    <p class="section-subtitle">
+                        Building smarter systems that scale your business, not your costs.
+                    </p>
                 </div>
                 <div class="about-content">
                     <div class="about-text">
@@ -191,7 +212,7 @@
                         <p>
                             We leverage existing technologies and best practices to deliver
                             automation quickly and reliably, so you don’t pay for unnecessary custom
-                            development. 
+                            development.
                         </p>
                         <div class="stats">
                             <div class="stat">
@@ -329,7 +350,11 @@
                         <h3>Backend & Integration</h3>
                         <p>
                             Robust backend systems that connect and automate your entire business
-                            ecosystem. <strong>Specializing in ERP integration and inventory management systems.</strong>
+                            ecosystem.
+                            <strong
+                                >Specializing in ERP integration and inventory management
+                                systems.</strong
+                            >
                         </p>
                         <ul>
                             <li>ERP System Integration (NetSuite, SAP, Oracle)</li>
@@ -373,12 +398,16 @@
                         </div>
                         <h3>E-commerce & Wholesale</h3>
                         <p>
-                            <strong>Deep expertise in inventory management and ERP systems.</strong> Automate inventory, 
-                            orders, and fulfillment. Connecting 
-                            multiple platforms, and  systems for seamless operations.
+                            <strong>Deep expertise in inventory management and ERP systems.</strong>
+                            Automate inventory, orders, and fulfillment. Connecting multiple
+                            platforms, and systems for seamless operations.
                         </p>
                         <div class="testimonial-quote">
-                            <p>"Simcha diagnosed and assessed our many software issues across multiple platforms. He resolved problems including data integrity, incorrect integration with NetSuite, API errors."</p>
+                            <p>
+                                "Simcha diagnosed and assessed our many software issues across
+                                multiple platforms. He resolved problems including data integrity,
+                                incorrect integration with NetSuite, API errors."
+                            </p>
                             <div class="testimonial-author">
                                 <strong>Dovid Pick</strong>
                                 <span>Director of Operations at Trasco LLC</span>
@@ -396,7 +425,10 @@
                             maintaining the highest security standards.
                         </p>
                         <div class="testimonial-quote">
-                            <p>"Simcha brings HIS expertise to deliver what YOU want and doesn't confuse the two. It's really YOUR project."</p>
+                            <p>
+                                "Simcha brings HIS expertise to deliver what YOU want and doesn't
+                                confuse the two. It's really YOUR project."
+                            </p>
                             <div class="testimonial-author">
                                 <strong>E. W.</strong>
                                 <span>VP of Development</span>
@@ -406,18 +438,28 @@
 
                     <div class="industry-card">
                         <div class="industry-icon">
-                            <img src="/partnership-logo.jpg" alt="Partnership Warehousing and Logistics" class="industry-logo" />
+                            <img
+                                src="/partnership-logo.jpg"
+                                alt="Partnership Warehousing and Logistics"
+                                class="industry-logo"
+                            />
                         </div>
                         <h3>Corporate & Enterprise</h3>
                         <p>
-                             Transform internal processes, 
-                            inventory management, and reporting to eliminate bottlenecksrep,reducing operational overhead.
+                            Transform internal processes, inventory management, and reporting to
+                            eliminate bottlenecksrep,reducing operational overhead.
                         </p>
                         <div class="testimonial-quote">
-                            <p>"Someone who understands your short and long term needs, giving you the roadmap to success."</p>
+                            <p>
+                                "Someone who understands your short and long term needs, giving you
+                                the roadmap to success."
+                            </p>
                             <div class="testimonial-author">
                                 <strong>Aharon Wiener</strong>
-                                <span>Director of Operations at Partnership Warehousing and Logistics</span>
+                                <span
+                                    >Director of Operations at Partnership Warehousing and
+                                    Logistics</span
+                                >
                             </div>
                         </div>
                     </div>
@@ -443,11 +485,19 @@
                         <div class="contact-methods">
                             <div class="contact-method">
                                 <i class="fas fa-envelope"></i>
-                                <a href="mailto:info@code4ever.dev" style="color: inherit; text-decoration: none;">info@code4ever.dev</a>
+                                <a
+                                    href="mailto:info@code4ever.dev"
+                                    style="color: inherit; text-decoration: none"
+                                    >info@code4ever.dev</a
+                                >
                             </div>
                             <div class="contact-method">
                                 <i class="fas fa-phone"></i>
-                                <a href="tel:+18455041855" style="color: inherit; text-decoration: none;">(845) 504-1855</a>
+                                <a
+                                    href="tel:+18455041855"
+                                    style="color: inherit; text-decoration: none"
+                                    >(845) 504-1855</a
+                                >
                             </div>
                             <div class="contact-method">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -455,7 +505,13 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" name="contact" method="POST" netlify netlify-honeypot="bot-field">
+                    <form
+                        class="contact-form"
+                        name="contact"
+                        method="POST"
+                        netlify
+                        netlify-honeypot="bot-field"
+                    >
                         <input type="hidden" name="bot-field" />
                         <input type="hidden" name="form-name" value="contact" />
                         <div class="form-group">
@@ -516,5 +572,16 @@
         </footer>
 
         <script type="module" src="src/main.js"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEWTVYPKMG"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-ZEWTVYPKMG');
+        </script>
     </body>
 </html>
