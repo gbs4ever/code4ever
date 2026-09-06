@@ -6,7 +6,7 @@
   publish = "dist"
   
   # Node version
-  environment = { NODE_VERSION = "18" }
+  environment = { NODE_VERSION = "22" }
 
 # Handle single page app routing (optional but good to have)
 [[redirects]]
