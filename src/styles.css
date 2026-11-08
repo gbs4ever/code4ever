@@ -9,6 +9,11 @@
     --steel-300: #a9c4ea;
     --sky-400: #4fb3ff;
     --blue-600: #2f6fd0;
+    --accent-sky: #4fb3ff;
+    --accent-amber: #fbbf24;
+    --accent-teal: #2dd4bf;
+    --accent-violet: #a78bfa;
+    --accent-rose: #fb7185;
     --text-strong: #e6eaf0;
     --text: #b4c1d4;
     --text-muted: #8496b2;
@@ -74,13 +79,26 @@ body {
     transition: color 0.3s ease;
 }
 
+.nav-logo span:not(.nav-tagline) {
+    transition: text-shadow 0.3s ease;
+}
+
 .nav-logo:hover {
-    color: var(--steel-300);
+    color: var(--sky-400);
+}
+
+.nav-logo:hover span:not(.nav-tagline) {
+    text-shadow: 0 0 12px rgba(79, 179, 255, 0.5);
+}
+
+.nav-logo:hover .nav-brand-mark {
+    filter: drop-shadow(0 0 8px rgba(79, 179, 255, 0.6));
 }
 
 .brand-mark {
     display: block;
     flex-shrink: 0;
+    transition: filter 0.3s ease;
 }
 
 .nav-brand-mark {
@@ -330,19 +348,19 @@ body {
 
 /* Per-solution accent colors */
 .solution-item:nth-child(1) {
-    --accent: #4fb3ff; /* ERP - sky blue */
+    --accent: var(--accent-sky); /* ERP */
 }
 .solution-item:nth-child(2) {
-    --accent: #fbbf24; /* Inventory - amber */
+    --accent: var(--accent-amber); /* Inventory */
 }
 .solution-item:nth-child(3) {
-    --accent: #2dd4bf; /* Integration - teal */
+    --accent: var(--accent-teal); /* Integration */
 }
 .solution-item:nth-child(4) {
-    --accent: #a78bfa; /* Data & BI - violet */
+    --accent: var(--accent-violet); /* Data & BI */
 }
 .solution-item:nth-child(5) {
-    --accent: #fb7185; /* Consulting - rose */
+    --accent: var(--accent-rose); /* Consulting */
 }
 
 .solution-icon {
@@ -887,7 +905,19 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--navy-950);
+    position: relative;
+    background:
+        radial-gradient(
+            ellipse at 15% 0%,
+            color-mix(in srgb, var(--accent-sky) 14%, transparent),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 85% 100%,
+            color-mix(in srgb, var(--accent-violet) 12%, transparent),
+            transparent 55%
+        ),
+        var(--navy-950);
     color: var(--text-strong);
     padding: 3rem 0 1rem;
     border-top: 1px solid var(--line);
@@ -910,12 +940,58 @@ body {
 
 .footer-logo i {
     margin-right: 0.5rem;
-    color: var(--steel-500);
+    color: var(--accent-sky);
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.footer-logo span {
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.footer-logo:hover span,
+.footer-logo:hover i {
+    color: var(--sky-400);
+    text-shadow: 0 0 12px rgba(79, 179, 255, 0.5);
+}
+
+.footer-brand p {
+    color: var(--steel-300);
+}
+
+/* Each link column gets its own accent */
+.footer-links {
+    --accent: var(--accent-sky);
+}
+
+.footer-links:nth-child(2) {
+    --accent: var(--accent-teal);
+}
+
+.footer-links:nth-child(3) {
+    --accent: var(--accent-amber);
 }
 
 .footer-links h4 {
-    margin-bottom: 1rem;
-    color: var(--steel-400);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.4rem;
+    color: var(--accent);
+}
+
+.footer-links h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
 }
 
 .footer-links ul {
@@ -927,13 +1003,17 @@ body {
 }
 
 .footer-links a {
+    display: inline-block;
     color: var(--text);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: white;
+    color: var(--accent);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
@@ -941,6 +1021,18 @@ body {
     padding-top: 2rem;
     border-top: 1px solid var(--line);
     color: var(--text-muted);
+}
+
+.footer-bottom p {
+    display: inline-block;
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.footer-bottom p:hover {
+    color: var(--sky-400);
+    text-shadow: 0 0 12px rgba(79, 179, 255, 0.5);
 }
 
 /* Responsive Design */
