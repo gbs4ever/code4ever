@@ -61,7 +61,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
-        navbar.style.boxShadow = '0 2px 15px rgba(11, 31, 63, 0.1)';
+        navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.35)';
     } else {
         navbar.style.boxShadow = 'none';
     }
