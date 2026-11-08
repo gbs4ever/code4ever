@@ -322,8 +322,27 @@ body {
 }
 
 .solution-item {
+    --accent: var(--sky-400);
     text-align: center;
     padding: 0 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Per-solution accent colors */
+.solution-item:nth-child(1) {
+    --accent: #4fb3ff; /* ERP - sky blue */
+}
+.solution-item:nth-child(2) {
+    --accent: #fbbf24; /* Inventory - amber */
+}
+.solution-item:nth-child(3) {
+    --accent: #2dd4bf; /* Integration - teal */
+}
+.solution-item:nth-child(4) {
+    --accent: #a78bfa; /* Data & BI - violet */
+}
+.solution-item:nth-child(5) {
+    --accent: #fb7185; /* Consulting - rose */
 }
 
 .solution-icon {
@@ -333,10 +352,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--steel-500);
+    border: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
     border-radius: 50%;
-    color: var(--steel-300);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
     font-size: 1.6rem;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .solution-item h3 {
@@ -345,12 +370,33 @@ body {
     color: var(--text-strong);
     margin-bottom: 0.6rem;
     line-height: 1.3;
+    transition: color 0.3s ease;
 }
 
 .solution-item p {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.solution-item:hover {
+    transform: translateY(-5px);
+}
+
+.solution-item:hover .solution-icon {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--navy-950);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.solution-item:hover h3 {
+    color: var(--accent);
+}
+
+.solution-item:hover p {
+    color: var(--text);
 }
 
 /* About Section */
